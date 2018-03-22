@@ -1,0 +1,11 @@
+===========================================
+==   This file briefly explains          ==
+==   various pcre patterns               ==
+==   that are not favored by Hyperscan   ==
+===========================================
+
+1. Patter: "/|" or "|/"
+	hyperscan error message: Pattern matches empty buffer; use HS_FLAG_ALLOWEMPTY to enable support.
+	hyperscan flag: 
+
+   

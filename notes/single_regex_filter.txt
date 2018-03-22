@@ -1,0 +1,22 @@
+=============================================
+==   This file documents on how I  	   ==
+==   created a c program in hyperscan      ==
+==   to compile a collection of single     ==
+==   regex to see if they compile.	   ==
+==   It's preferred to compile them        ==
+==   one-by-one. If a batch of regex       ==
+==   got sent to compile then If one       ==
+==   regex failed the whole batch would    ==
+==   fail. It doesn't help us to isolate   ==
+==   the problem		           ==
+=============================================
+
+---------------------------------------------
+1. In hyperscan project folder:
+    <1>. Navigate to /example
+    <2>. Creake a new directory /build.
+    <3>. Create a new c file regex_filter.c
+    <4>. Copy CMakeLists.txt from /example to /build. 
+    <5>. Make the appropriate changes to that CMakeLists.txt file to compilation purpose.
+
+

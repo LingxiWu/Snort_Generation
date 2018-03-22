@@ -1,0 +1,26 @@
+=====================================
+==   This file documents on how I  ==
+==   set up the work environment   ==
+==   to debug and analyze Snort    ==
+==   for ANMLZoo 2.0               ==
+=====================================
+
+DO EVERYTHING IN AUTOMATA 11.
+
+1. For hscompile:
+	<1>. Boost (for c++ compilation). There is an up-to-date copy of boost_1_63_0 /localtmp directory.
+  
+		export BOOST_ROOT = /localtmp/tjt7a/boost_1_63_0
+	
+	<2>. Ragel (for automata generation).We need to add Ragel to path.
+		PATH=$PATH:/zf18/lw2ef/Documents/workspace/ragel_6.9/ragel
+
+2. For hscompile:
+
+	to compile c++ file: 
+
+	in /zf18/lw2ef/Documents/workspace/hscompile/build directory
+
+	cmake -DHS_SOURCE_DIR=/zf18/lw2ef/Documents/workspace/hyperscan -DMNRL_SOURCE_DIR=/zf18/lw2ef/Documents/workspace/mnrl/C++ ..
+
+*** In order to debug, put "set(CMAKE_BUILD_TYPE Debug)" into /hscompile/CMakeLists.txt ***

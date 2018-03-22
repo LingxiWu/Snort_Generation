@@ -1,0 +1,42 @@
+=======================================
+== This file documents on how to     == 
+== conduct a debugging process on    ==
+== hscompile for Snort               ==
+=======================================
+
+--------- Preliminary Set Up ----------
+
+1. SSH to automata 11
+2. Open 2 terminals
+	<1>. One points to: 
+		/zf18/lw2ef/Documents/workspace/ANMLZoo2/Snort/Snort_debug
+	<2>. The other points to:
+		/zf18/lw2ef/Documents/workspace/hscompile/build
+
+---------------------------------------
+
+--------- Running Commands ------------
+
+1. In /Snort_debug directory copy rules files from:
+	/rules > /rules_temp
+
+2. In terminal 1, run Python script:
+	python small_step.py
+
+	This step will go through snort rule files, grab PCRE rules (after filtering), and convert them to regex. The outcome is a regex file (single_output_regex.regex) in /regex directory.
+
+3. In terminal 2, run c++ script:
+	./pcre2mnrl /zf18/lw2ef/Documents/workspace/ANMLZoo2/Snort/Snort_debug/regex/single_output_regex.regex /zf18/lw2ef/Documents/workspace/ANMLZoo2/Snort/Snort_debug/automata_graph_output/final_results.mnrl
+
+	This step will generate a .mnrl file in /zf18/lw2ef/Documents/workspace/ANMLZoo2/Snort/Snort_debug, which is essentailly a collection of automata descriptions converted from Snort rule sets.  
+	
+--------------------------------------
+
+---------- VASim Commands ------------
+
+working dir for VASim: /zf18/lw2ef/Documents/workspace/VASim
+
+1. converting mnrl to amnl:
+   vasim -a /zf18/lw2ef/Documents/workspace/ANMLZoo2/Snort/Snort_debug/automata_graph_output/final.mnrl
+
+2. output result is automata_0.anml
